@@ -33,9 +33,12 @@ const AppointmentSchema = new Schema<AppointmentInterface>({
   ],
 });
 
-AppointmentSchema.pre('save', (next) => {
-  this.dataAppointment = DateTime.fromJSDate(this.dataAppointment).toJSDate();
+AppointmentSchema.pre('save', function(next) {
+  if (this.dataAppointment) {
+    this.dataAppointment = DateTime.fromJSDate(this.dataAppointment).toJSDate();
+  }
   next();
 });
 
-export const Appointment = model<AppointmentInterface>('Appointment', AppointmentSchema);
+
+export const Appointments = model<AppointmentInterface>('Appointments', AppointmentSchema);
