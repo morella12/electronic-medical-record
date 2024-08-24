@@ -9,7 +9,7 @@ interface Medicine {
 
 export interface AppointmentInterface extends Document {
   name: string;
-  dataAppointment: DateTime;
+  dataAppointment: Date;
   chiefComplaints: string;
   allergies: string;
   historyPresent: string;
@@ -35,7 +35,7 @@ const AppointmentSchema = new Schema<AppointmentInterface>({
 
 AppointmentSchema.pre('save', function(next) {
   if (this.dataAppointment) {
-    this.dataAppointment = DateTime.fromJSDate(this.dataAppointment).toJSDate();
+    this.dataAppointment = DateTime.fromJSDate(this.dataAppointment as unknown as Date).toJSDate();
   }
   next();
 });
