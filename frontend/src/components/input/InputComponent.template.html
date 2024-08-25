@@ -1,0 +1,11 @@
+<div>
+  <label :for="id">{{ label }}</label>
+  <input
+    :type="type"
+    :id="id"
+    :value="value"
+    @input="$emit('input', $event.target.value)"
+    :placeholder="placeholder"
+    :disabled="disabled"
+  />
+</div>

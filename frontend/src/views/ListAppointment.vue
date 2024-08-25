@@ -1,28 +1,43 @@
 <template>
   <div>
-    <h1>Listagem de Atendimentos</h1>
+    <h1>Atendimentos Anteriores</h1>
     <ul>
-      <li v-for="atendimento in atendimentos" :key="atendimento.id">
-        {{ atendimento.paciente }} - {{ atendimento.data }}
+      <li v-if="isLoading">Carregando...</li>
+      <li v-else-if="!appointments.length">Nenhum atendimento encontrado.</li>
+      <li v-else v-for="appointment in appointments" :key="appointment.name">
+        <h3>{{ appointment.name }}</h3>
+        <p>Queixa: {{ appointment.chiefComplaints }}</p>
       </li>
     </ul>
   </div>
 </template>
 
-<script>
-import axios from 'axios';
+<script lang="ts">
+import { defineComponent, onMounted, ref } from 'vue';
+import { listAppointment, IAppointment } from '@/services/appointment';
 
-export default {
-  data() {
+export default defineComponent({
+  name: 'ListAppointment',
+  setup() {
+    const appointments = ref<IAppointment[]>([]);
+    const isLoading = ref(true);
+
+    const loadingAppointment = async () => {
+      try {
+        appointments.value = await listAppointment();
+      } catch (error) {
+        console.error('Erro ao carregar appointment:', error);
+      } finally {
+        isLoading.value = false;
+      }
+    };
+
+    onMounted(loadingAppointment);
+
     return {
-      atendimentos: [],
+      appointments,
+      isLoading,
     };
   },
-  mounted() {
-    axios.get('/api/atendimentos')
-      .then(response => {
-        this.atendimentos = response.data;
-      });
-  },
-};
+});
 </script>
