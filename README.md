@@ -3,8 +3,8 @@
 Este projeto é um sistema de prontuário eletrônico que permite ao profissional de saúde registrar o atendimento e, opcionalmente, prescrever medicamentos aos pacientes.
 
 ## Estrutura do Projeto
-* Backend: Node.js com TypeScript, MongoDB para armazenar os dados, Jest para testes.
-* Frontend: Vue.js.
+*  **Backend:** Node.js com TypeScript, MongoDB para armazenar os dados, Jest para testes.
+*  **Frontend:** Vue.js.
 
 ## Requisitos
 * Node.js v14+ e npm v6+
@@ -12,44 +12,101 @@ Este projeto é um sistema de prontuário eletrônico que permite ao profissiona
 
 ## Configuração e Execução do Backend
 * Clonando o repositpotório
-```
+```bash
 git clone https://github.com/morella12/electronic-medical-record
 cd electronic-medical-record/backend
 ```
 
 * Instalar Dependências
-```
+```bash
 npm install
 ```
 ou
-```
+```bash
 yarn install
 ```
-* Executando o Backend`
-```
+* Executando o Backend
+```bash
 npm run dev
 ```
 
 * Executando os Testes
-```
+```bash
 npm test
 ```
 
-## Configuração e Execução do Backend
+## Configuração e Execução do Frontend
 * Navagando até o repositório
-```
+```bash
 cd electronic-medical-record/frontend
 ```
 
 * Instalar Dependências
-```
+```bash
 npm install
 ```
 ou
-```
+```bash
 yarn install
 ```
-* Executando o Frontend`
+* Executando o Frontend
+```bash
+npm run dev
 ```
+
+# Electronic Medical Record 🇺🇸
+
+This project is an electronic medical record system that allows healthcare professionals to document patient care and, optionally, prescribe medications.
+
+## Project Structure
+* **Backend:** Node.js with TypeScript, MongoDB for data storage, Jest for testing.
+* **Frontend:** Vue.js.
+
+## Requirements
+* Node.js v14+ and npm v6+
+* MongoDB
+
+## Backend Setup and Execution
+
+### Cloning the Repository
+```bash
+git clone https://github.com/morella12/electronic-medical-record
+cd electronic-medical-record/backend
+```
+
+* Installing Dependencies
+```bash
+npm install
+```
+or
+```bash
+yarn install
+```
+* Running the Backend
+```bash
+npm run dev
+```
+
+* Running Tests
+```bash
+npm test
+```
+
+## Frontend Setup and Execution
+* Navigating to the Repository
+```bash
+cd electronic-medical-record/frontend
+```
+
+* Installing Dependencies
+```bash
+npm install
+```
+ou
+```bash
+yarn install
+```
+* Running the Frontend
+```bash
 npm run dev
 ```
