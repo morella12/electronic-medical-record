@@ -1,7 +1,10 @@
-import { Appointments } from './../models/Appointments';
-import { Request, Response } from 'express';
+import { Appointments } from "./../models/Appointments";
+import { Request, Response } from "express";
 
-export const listAppointments = async (req: Request, res: Response): Promise<void> => {
+export const listAppointments = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   try {
     const appointments = await Appointments.find();
     res.json(appointments);
@@ -10,7 +13,10 @@ export const listAppointments = async (req: Request, res: Response): Promise<voi
   }
 };
 
-export const createAppointment = async (req: Request, res: Response): Promise<void> => {
+export const createAppointment = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   try {
     const newAppointment = new Appointments(req.body);
     await newAppointment.save();

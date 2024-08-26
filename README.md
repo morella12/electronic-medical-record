@@ -29,10 +29,18 @@ yarn install
 ```bash
 npm run dev
 ```
+ou
+```bash
+yarn dev
+```
 
 * Executando os Testes
 ```bash
 npm test
+```
+ou
+```bash
+yarn test
 ```
 
 ## Configuração e Execução do Frontend
@@ -49,9 +57,14 @@ ou
 ```bash
 yarn install
 ```
-* Executando o Frontend
+
+Para execurar o projeto
 ```bash
 npm run dev
+```
+ou
+```bash
+yarn dev
 ```
 
 # Electronic Medical Record 🇺🇸
@@ -86,10 +99,18 @@ yarn install
 ```bash
 npm run dev
 ```
+or
+```bash
+yarn dev
+```
 
 * Running Tests
 ```bash
 npm test
+```
+or
+```bash
+yarn test
 ```
 
 ## Frontend Setup and Execution
@@ -106,7 +127,13 @@ ou
 ```bash
 yarn install
 ```
+
 * Running the Frontend
 ```bash
 npm run dev
 ```
+or
+```bash
+yarn dev
+```
+

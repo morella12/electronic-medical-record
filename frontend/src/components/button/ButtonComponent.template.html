@@ -1,0 +1,7 @@
+<button
+  :class="['btn', buttonType]"
+  :disabled="disabled"
+  @click="$emit('click')"
+>
+  <slot></slot>
+</button>

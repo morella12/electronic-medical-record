@@ -13,31 +13,31 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue';
-import { listAppointment, IAppointment } from '@/services/appointment';
+import { defineComponent, onMounted, ref } from 'vue'
+import { listAppointment } from '@/services/appointment'
+import type { IAppointment } from '@/utils/interfaces'
 
 export default defineComponent({
   name: 'ListAppointment',
   setup() {
-    const appointments = ref<IAppointment[]>([]);
-    const isLoading = ref(true);
-
+    const appointments = ref<IAppointment[]>([])
+    const isLoading = ref(true)
     const loadingAppointment = async () => {
       try {
-        appointments.value = await listAppointment();
+        appointments.value = await listAppointment()
       } catch (error) {
-        console.error('Erro ao carregar appointment:', error);
+        console.error('Erro ao carregar appointment:', error)
       } finally {
-        isLoading.value = false;
+        isLoading.value = false
       }
-    };
+    }
 
-    onMounted(loadingAppointment);
+    onMounted(loadingAppointment)
 
     return {
       appointments,
-      isLoading,
-    };
-  },
-});
+      isLoading
+    }
+  }
+})
 </script>

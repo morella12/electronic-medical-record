@@ -1,4 +1,4 @@
-import AddAppointment from '@/views/AddAppointment.vue';
+import AddAppointment from '@/views/CreateAppointment.vue';
 import ListAppointment from '@/views/ListAppointment.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -11,7 +11,7 @@ export const router = createRouter({
       component: ListAppointment
     },
     {
-      path: '/createAppointment',
+      path: '/registrar',
       name: 'AddAppointment',
       component: AddAppointment
     }
