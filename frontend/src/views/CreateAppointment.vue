@@ -7,6 +7,10 @@
         <input v-model="appointment.name" id="name" type="text" required />
       </div>
       <div>
+        <label for="name">CPF do Paciente</label>
+        <input v-model="appointment.cpf" id="cpf" type="text" required />
+      </div>
+      <div>
         <label for="data-appointment">Data do Atendimento</label>
         <input v-model="appointment.dataAppointment" id="data-appointment" type="date" required />
       </div>
@@ -24,7 +28,7 @@
       </div>
       <div>
         <label for="family-history">Histórico Familiar</label>
-        <textarea v-model="appointment.familyHistory" id="family-history" type="text" ></textarea>
+        <textarea v-model="appointment.familyHistory" id="family-history" type="text"></textarea>
       </div>
       <div class="medicines">
         <label>Prescrição de Medicamentos</label>
@@ -33,27 +37,39 @@
         <input v-model="appointment.medicines.name" id="medicine-name" type="text" />
 
         <label for="medicine">Descrição do Medicamento</label>
-        <textarea v-model="appointment.medicines.description" id="medicine-description" type="text"></textarea>
+        <textarea
+          v-model="appointment.medicines.description"
+          id="medicine-description"
+          type="text"
+        ></textarea>
 
         <label for="medicine">Dose do Medicamento</label>
         <input v-model="appointment.medicines.dosage" id="medicine-dose" type="text" />
       </div>
-      <button type="submit" :disabled="isLoading">Registrar</button>
+      <ButtonCustom :label="isLoading ? 'Registrando...' : 'Registrar'" :disabled="isLoading" />
       <p v-if="message">{{ message }}</p>
     </form>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from 'vue';
-import { saveAtendimento } from '@/services/appointment';
-import type { IAppointment } from '@/utils/interfaces';
+import { defineComponent, reactive, ref } from 'vue'
+import { saveAtendimento } from '@/services/appointment'
+import type { IAppointment } from '@/utils/interfaces'
+import ButtonCustom from '@/components/button/ButtonComponent.vue'
 
 export default defineComponent({
+  components: { ButtonCustom },
+  methods: {
+    handleClick() {
+      alert('Button clicked!')
+    }
+  },
   name: 'AddAppointment',
   setup() {
     const appointment = reactive<IAppointment>({
       name: '',
+      cpf: '',
       dataAppointment: new Date(),
       chiefComplaints: '',
       allergies: '',
@@ -62,35 +78,34 @@ export default defineComponent({
       medicines: {
         name: '',
         description: '',
-        dosage: '',
+        dosage: ''
       }
-    });
+    })
 
-    const isLoading = ref(false);
-    const message = ref<string | null>(null);
+    const isLoading = ref(false)
+    const message = ref<string | null>(null)
 
     const createAppointment = async () => {
-      isLoading.value = true;
+      isLoading.value = true
       try {
         await saveAtendimento(appointment);
-        message.value = "Atendimento registrado com sucesso";
+        message.value = 'Atendimento registrado com sucesso';
         Object.keys(appointment).forEach(key => {
           (appointment as any)[key] = '';
         });
       } catch (err: any) {
-        console.error('Erro ao registrar atendimento:', err);
-        message.value = 'Erro ao registrar atendimento.';
+        console.error('Erro ao registrar atendimento:', err)
+        message.value = 'Erro ao registrar atendimento.'
       } finally {
-        isLoading.value = false;
+        isLoading.value = false
       }
-
-    };
+    }
     return {
       appointment,
       isLoading,
       message,
-      createAppointment,
-    };
+      createAppointment
+    }
   }
-});
+})
 </script>

@@ -9,6 +9,7 @@ interface Medicine {
 
 export interface AppointmentInterface extends Document {
   name: string;
+  cpf: string;
   dataAppointment: Date;
   chiefComplaints: string;
   allergies: string;
@@ -19,6 +20,7 @@ export interface AppointmentInterface extends Document {
 
 const AppointmentSchema = new Schema<AppointmentInterface>({
   name: { type: String, required: true },
+  cpf: { type: String, required: true },
   dataAppointment: { type: Date, required: true },
   chiefComplaints: { type: String, required: true },
   allergies: { type: String, required: true },
