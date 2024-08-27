@@ -72,16 +72,23 @@ export default defineComponent({
 
 nav {
   padding: 1rem;
+  font-size: 16px;
 }
 
 nav a {
   margin: 0 15px;
   text-decoration: none;
-  color: #42b983;
+  color: #35495e;
+  text-shadow: 0 0 2px #5c6c75;
+  -moz-text-shadow: 0 0 2px #5c6c75;
+  -webkit-text-shadow: 0 0 2px #5c6c75;
 }
 
 nav a.router-link-active {
   font-weight: bold;
-  color: #35495e;
+  color: #42b983;
+  text-shadow: 0 0 2px #fff;
+  -moz-text-shadow: 0 0 2px #fff;
+  -webkit-text-shadow: 0 0 2px #fff;
 }
 </style>
