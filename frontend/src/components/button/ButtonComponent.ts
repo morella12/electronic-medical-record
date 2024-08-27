@@ -1,9 +1,10 @@
 export default {
   props: {
+    text: String,
     buttonType: {
       type: String,
       default: 'primary',
-      validator(value) {
+      validator(value: any) {
         return ['primary', 'secondary', 'danger'].includes(value);
       }
     },

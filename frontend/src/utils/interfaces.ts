@@ -1,7 +1,8 @@
-export interface Medicine {
+export interface IMedicine {
   name: string;
   description: string;
   dosage: string;
+  id?: string;
 };
 
 export interface IAppointment {
@@ -12,5 +13,5 @@ export interface IAppointment {
   allergies: string;
   historyPresent: string;
   familyHistory: string;
-  medicines: Medicine;
+  medicines: IMedicine[];
 };
