@@ -36,7 +36,7 @@ yarn dev
 
 * Executando os Testes
 ```bash
-npm test
+npm run test
 ```
 ou
 ```bash
@@ -106,7 +106,7 @@ yarn dev
 
 * Running Tests
 ```bash
-npm test
+npm run test
 ```
 or
 ```bash
